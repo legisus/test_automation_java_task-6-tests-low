@@ -25,9 +25,9 @@ public class SalesPerson extends Employee{
     @Override
     public void setBonus(BigDecimal bonus) {
         super.setBonus(bonus);
-        if(percent > 100)
-            bonus = (bonus).multiply(new BigDecimal(2));
-        if (percent > 200)
-            bonus = (bonus).multiply(new BigDecimal(3));
+//        if(percent > 100)
+//            bonus = (bonus).add(bonus);
+//        if (percent > 200)
+//            bonus = (bonus).add(bonus).add(bonus);
     }
 }

@@ -15,14 +15,15 @@ public class Manager extends Employee{
         this.clientAmount = clientAmount;
     }
 
+
     @Override
     public void setBonus(BigDecimal bonus) {
         super.setBonus(bonus);
-        if (clientAmount > 100) {
-            bonus = (bonus).add(new BigDecimal(500));
-        }
-        else if(clientAmount > 150) {
-            bonus = (bonus).add(new BigDecimal(1000));
-        }
+//        if (clientAmount > 100) {
+//            bonus = (bonus).add(new BigDecimal(500));
+//        }
+//        else if(clientAmount > 150) {
+//            bonus = (bonus).add(new BigDecimal(1000));
+//        }
     }
 }
