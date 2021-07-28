@@ -35,9 +35,6 @@ public class Employee {
         if (salary.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException();
         }
-        if (salary == null){
-            throw new IllegalArgumentException();
-        }
     }
 
     @Override
@@ -57,19 +54,11 @@ public class Employee {
         if (bonus.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException();
         }
-        if (bonus == null){
-            throw new IllegalArgumentException();
-        }
+       
     }
 
     public BigDecimal toPay(){
-
-        BigDecimal value = new BigDecimal(0);
-        value.add(salary);
-        value.add(bonus);
-        if (value == null){
-            throw new IllegalArgumentException();
-        }
+        BigDecimal value = (salary).add(bonus);
         return value;
     }
 
