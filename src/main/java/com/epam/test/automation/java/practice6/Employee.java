@@ -32,7 +32,7 @@ public class Employee {
 
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
-        if (salary.compareTo(BigDecimal.ZERO) < 0){
+        if (salary.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException();
         }
     }
@@ -51,7 +51,7 @@ public class Employee {
 
     public void setBonus(BigDecimal bonus) {
         this.bonus = bonus;
-        if (bonus.compareTo(BigDecimal.ZERO) < 0){
+        if (bonus.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException();
         }
     }
