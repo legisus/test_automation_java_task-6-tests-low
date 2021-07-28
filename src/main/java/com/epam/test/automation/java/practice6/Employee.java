@@ -10,7 +10,17 @@ import java.math.BigDecimal;
 public class Employee {
     private String lastName;
     private BigDecimal salary;
-    private int bonus;
+    private BigDecimal bonus;
+
+    public void notNull(){
+        if (bonus.compareTo(BigDecimal.ZERO) < 0){
+            throw new IllegalArgumentException();
+        }
+        if (salary.compareTo(BigDecimal.ZERO) < 0){
+            throw new IllegalArgumentException();
+        }
+    }
+
 
     public Employee(String lastName, BigDecimal salary) {
         this.lastName = lastName;
@@ -41,20 +51,18 @@ public class Employee {
                 '}';
     }
 
-    public int getBonus() {
+    public BigDecimal getBonus() {
         return bonus;
     }
 
-    public void setBonus(int bonus) {
+    public void setBonus(BigDecimal bonus) {
         this.bonus = bonus;
-        if (bonus < 0)
-            throw new IllegalArgumentException();
     }
 
     public BigDecimal toPay(){
         BigDecimal value = new BigDecimal(0);
         value.add(salary);
-        value.add(BigDecimal.valueOf(bonus));
+        value.add(bonus);
         return value;
     }
 
