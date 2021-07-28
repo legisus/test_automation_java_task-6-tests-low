@@ -63,9 +63,13 @@ public class Employee {
     }
 
     public BigDecimal toPay(){
+
         BigDecimal value = new BigDecimal(0);
         value.add(salary);
         value.add(bonus);
+        if (value == null){
+            throw new IllegalArgumentException();
+        }
         return value;
     }
 
