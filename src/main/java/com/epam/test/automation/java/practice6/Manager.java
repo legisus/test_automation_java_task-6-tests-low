@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice6;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * <summary>
@@ -18,12 +19,15 @@ public class Manager extends Employee{
 
     @Override
     public void setBonus(BigDecimal bonus) {
+        if (Objects.isNull(bonus)){
+            throw new IllegalArgumentException();
+        }
+        if (clientAmount >= 100 && clientAmount < 150) {
+            bonus = (bonus).add(new BigDecimal(500));
+        }
+        else {
+            bonus = (bonus).add(new BigDecimal(1000));
+        }
         super.setBonus(bonus);
-//        if (clientAmount > 100) {
-//            bonus = (bonus).add(new BigDecimal(500));
-//        }
-//        else if(clientAmount > 150) {
-//            bonus = (bonus).add(new BigDecimal(1000));
-//        }
     }
 }

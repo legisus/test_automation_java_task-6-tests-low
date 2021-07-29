@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice6;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * <summary>
@@ -22,9 +23,6 @@ public class Employee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public BigDecimal getSalary() {
         return salary;
@@ -50,16 +48,21 @@ public class Employee {
     }
 
     public void setBonus(BigDecimal bonus) {
-        this.bonus = bonus;
+        if (Objects.isNull(bonus)){
+            throw new IllegalArgumentException();
+        }
         if (bonus.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException();
         }
-       
+
+        this.bonus = bonus;
     }
 
     public BigDecimal toPay(){
-        BigDecimal value = (salary).add(bonus);
-        return value;
+        if (Objects.isNull(bonus)){
+            throw new IllegalArgumentException();
+        }
+        return salary.add(bonus);
     }
 
 

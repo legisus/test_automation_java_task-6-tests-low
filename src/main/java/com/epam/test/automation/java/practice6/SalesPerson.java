@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice6;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * <summary>
@@ -24,10 +25,15 @@ public class SalesPerson extends Employee{
 
     @Override
     public void setBonus(BigDecimal bonus) {
+        if (Objects.isNull(bonus)){
+            throw new IllegalArgumentException();
+        }
+        if(percent >= 100 && percent < 200) {
+            bonus = bonus.add(bonus);
+        } else {
+            bonus = bonus.add(bonus).add(bonus);
+
+        }
         super.setBonus(bonus);
-//        if(percent > 100)
-//            bonus = (bonus).add(bonus);
-//        if (percent > 200)
-//            bonus = (bonus).add(bonus).add(bonus);
     }
 }
